@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="myModule">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Patronage</title>
+
+
+
+	</head>
+
+	<body >
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+		<header class="mdl-layout__header">
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </header>
+	
+	<main class="mdl_layout_content">
+		<div class="page_content">
+			<div class="acme-card-wide mdl-card mdl-shadow--2dp">
+		
+		<div ng-controller="myController as ctrl">
+		
+		<label>Search: <input ng-model="searchText"></label>
+
+		<li  ng-repeat="(key, value) in ctrl.data | filter:searchText" >
+		<b>{{ value.login }} </b> </br>
+		{{ value.followers_url }} </br>
+		{{ value.html_url }} </br>
+		<img ng-src="{{ value.avatar_url }}" height="100" width="100" alt="avatar" />
+		</li>
+
+	</div>
+	</main>
+
+ <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__right-section">
+      <div class="mdl-logo">
+        With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
+      </div>
+    </div>
+  </footer>
+
+
+
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+		
+	</body>
+</html>
